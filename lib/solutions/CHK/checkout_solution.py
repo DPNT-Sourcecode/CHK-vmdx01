@@ -57,10 +57,14 @@ class CheckoutSolution:
         for item in group_items:
             group_pool.extend([item] * counts.get(item, 0))
 
+        group_pool.sort(key=lambda x: price_table[x]['price'], reverse=True)
+        print(group_pool)
+
         number_of_groups = len(group_pool) // group_size
         total += number_of_groups * group_price
 
         # Remove groups from count so normal pricing can happen
+        # this should only be for ones that are applied
         group_count = Counter(group_pool)
         for item in group_items:
             counts[item] -= group_count[item]
@@ -81,4 +85,5 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 

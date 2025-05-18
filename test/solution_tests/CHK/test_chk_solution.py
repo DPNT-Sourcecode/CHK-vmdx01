@@ -59,6 +59,7 @@ class TestCHK():
         assert CheckoutSolution().checkout("VV") == 90
 
     def test_STXYZ_offer(self):
-        assert CheckoutSolution().checkout("STXYZ") == 20 + 
+        assert CheckoutSolution().checkout("STXYZ") == 82 # Z,T,Y,S,X ZTY should be removed for 45 + S and X = 45 + 17 + 20
+
 
 
