@@ -16,6 +16,7 @@ class TestCHK():
 
     def test_multi_sku_with_offer(self):
         assert CheckoutSolution().checkout("AAAAABB") == 245
+        assert CheckoutSolution().checkout("AAAAABB") == 245
 
     def test_invalid_input(self):
         assert CheckoutSolution().checkout("Z") == -1
@@ -26,7 +27,7 @@ class TestCHK():
     def test_empty_input(self):
         assert CheckoutSolution().checkout("") == 0
 
-    def test_2E_get_1B(self):
+    def test_2E_get_1B_free(self):
         assert CheckoutSolution().checkout("BEE") == 80
         assert CheckoutSolution().checkout("BBEEEEEE") == 240
         assert CheckoutSolution().checkout("BBEE") == 110 
@@ -37,4 +38,11 @@ class TestCHK():
         assert CheckoutSolution().checkout("AAAAAAAA") == 330
         assert CheckoutSolution().checkout("AA") == 100
         assert CheckoutSolution().checkout("AAAAAAAAA") == 380
+
+    def test_3F_get_1F_free(self):
+        assert CheckoutSolution().checkout("FFF") == 20
+        assert CheckoutSolution().checkout("FFFFF") == 40
+        assert CheckoutSolution().checkout("FFFFFFFFFFFF") == 80
+        assert CheckoutSolution().checkout("FFFABC") == 20 + 50 + 30 + 20
+
 
