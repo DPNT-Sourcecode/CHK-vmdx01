@@ -16,7 +16,7 @@ class TestCHK():
 
     def test_multi_sku_with_offer(self):
         assert CheckoutSolution().checkout("AAAAABB") == 245
-        assert CheckoutSolution().checkout("AAAAABB") == 245
+        assert CheckoutSolution().checkout("AAAAABBEEFFF") == 200 + 30 + 80 + 20
 
     def test_invalid_input(self):
         assert CheckoutSolution().checkout("Z") == -1
@@ -44,5 +44,3 @@ class TestCHK():
         assert CheckoutSolution().checkout("FFFFF") == 40
         assert CheckoutSolution().checkout("FFFFFFFFFFFF") == 80
         assert CheckoutSolution().checkout("FFFABC") == 20 + 50 + 30 + 20
-
-

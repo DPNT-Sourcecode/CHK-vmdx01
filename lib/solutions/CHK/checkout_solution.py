@@ -50,7 +50,3 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
-
-
-
-
