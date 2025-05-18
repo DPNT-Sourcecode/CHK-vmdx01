@@ -11,15 +11,20 @@ class CheckoutSolution:
             return -1
 
         price_table = {
-            "A": {"price": 50, "offer": (3,130)},
-            "B": {"price": 30, "offer": (2,45)},
-            "C": {"price": 20, "offer": None},
-            "D": {"price": 15, "offer": None}
+            "A": {"price": 50, "offer": [(3,130), (5,200)]},
+            "B": {"price": 30, "offer": [(2,45)]},
+            "C": {"price": 20, "offer": []},
+            "D": {"price": 15, "offer": []},
+            "E": {"price": 40, "offer": []} # apply 2E for 1B separately
         }
 
         total = 0
         from collections import Counter
         counts = Counter(skus)
+        
+        free_b = counts // 2
+        if counts.get("B"):
+            counts["B"] = max(0, counts["B"] - free_b)
 
         for item, count in counts.items():
             data = price_table.get(item)
@@ -35,6 +40,7 @@ class CheckoutSolution:
                 total += data["price"] * count
 
         return total
+
 
 
 
