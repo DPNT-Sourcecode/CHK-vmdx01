@@ -1,10 +1,14 @@
 
 class CheckoutSolution:
 
-    def is_valid_skus(skus):
+    def is_valid_skus(self, skus: str) -> bool:
+        return skus == "" or (skus.isalpha() and skus.isupper())
 
     # skus = unicode string
     def checkout(self, skus: str) -> int:
+        if not self.is_valid_skus(skus):
+            return -1
+
         price_table = {
             "A": {"price": 50, "offer": (3,130)},
             "B": {"price": 30, "offer": (2,45)},
@@ -30,5 +34,6 @@ class CheckoutSolution:
                 total += data["price"] * count
 
         return total
+
 
 
