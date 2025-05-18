@@ -56,7 +56,13 @@ class CheckoutSolution:
         # get all groups in count
         group_pool = []
         for item in group_items:
-            
+            group_pool.extend([item] * counts.get(item, 0))
+
+        number_of_groups = len(group_pool) // group_size
+        total += number_of_groups * group_price
+
+        #remove groups from count so normal pricing can happen
+        
 
         for item, count in counts.items():
             data = price_table.get(item)
