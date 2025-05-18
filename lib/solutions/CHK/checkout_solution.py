@@ -43,16 +43,17 @@ class CheckoutSolution:
         from collections import Counter
         counts = Counter(skus)
 
-        # Free F discount will not be affected by other discounts, so always apply
-        def update_sku_multiple_sku_free_sku_offer(sku: str, counts: dict[str | int], ) -> int:
+        def update_sku_multiple_sku_one_free_sku_offer(sku: str, counts: dict[str | int], amount: int) -> int:
             total_sku = counts[sku]
-            free_sku = total_sku // 
-
+            free_sku = total_sku // amount
+            counts[sku] = total_sku - free_sku
+            return counts
 
         if "F" in counts:
-            total_f = counts["F"]
-            free_f = total_f // 3
-            counts["F"] = total_f - free_f
+            counts = update_sku_multiple_sku_one_free_sku_offer("F", counts, 3)
+        if "U" in counts:
+            counts = update_sku_multiple_sku_one_free_sku_offer("U", counts, 3)
+
 
         # Free B discount is always better than 50% of a B if you buy two, so always apply
         free_b = counts["E"] // 2
@@ -75,5 +76,6 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 
 
