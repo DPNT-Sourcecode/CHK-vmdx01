@@ -15,8 +15,8 @@ class CheckoutSolution:
             "B": {"price": 30, "offers": [(2,45)]},
             "C": {"price": 20, "offers": []},
             "D": {"price": 15, "offers": []},
-            "E": {"price": 40, "offers": []}, # apply 2E for 1B separately
-            "F": {"price": 10, "offers": []}, # apply 2F get one F free separately
+            "E": {"price": 40, "offers": []}, # 2E get one B free
+            "F": {"price": 10, "offers": []}, # 2F get one F free 
             "G": {"price": 20, "offers": []},
             "H": {"price": 20, "offers": [(5,45), (10,80)]},
             "I": {"price": 20, "offers": []},
@@ -24,14 +24,14 @@ class CheckoutSolution:
             "K": {"price": 20, "offers": [(2,150)]},
             "L": {"price": 20, "offers": []},
             "M": {"price": 20, "offers": []},
-            "N": {"price": 20, "offers": []}, # apply 3N get one M free separately
+            "N": {"price": 20, "offers": []}, # 3N get one M free
             "O": {"price": 20, "offers": []},
             "P": {"price": 20, "offers": [(5,200)]},
             "Q": {"price": 20, "offers": [(3,80)]},
-            "R": {"price": 20, "offers": []}, # apply 3R get one Q free separately
+            "R": {"price": 20, "offers": []}, # 3R get one Q free
             "S": {"price": 20, "offers": []},
             "T": {"price": 20, "offers": []},
-            "U": {"price": 20, "offers": []}, # apply 3U get one U separately
+            "U": {"price": 20, "offers": []}, # 3U get one U
             "V": {"price": 20, "offers": [(2,90), (3,130)]},
             "W": {"price": 20, "offers": []},
             "X": {"price": 20, "offers": []},
@@ -43,19 +43,20 @@ class CheckoutSolution:
         from collections import Counter
         counts = Counter(skus)
 
-        def update_sku_multiple_sku_one_free_sku_offer(sku: str, counts: dict[str | int], amount: int) -> int:
+        def update_counts_multi_sku_same(sku: str, counts: dict[str | int], amount_needed: int) -> int:
             total_sku = counts[sku]
-            free_sku = total_sku // amount
+            free_sku = total_sku // amount_needed
             counts[sku] = total_sku - free_sku
             return counts
 
         if "F" in counts:
-            counts = update_sku_multiple_sku_one_free_sku_offer("F", counts, 3)
+            counts = update_counts_multi_sku_same("F", counts, 3)
         if "U" in counts:
-            counts = update_sku_multiple_sku_one_free_sku_offer("U", counts, 3)
+            counts = update_counts_multi_sku_same("U", counts, 3)
 
+        def update_counts_multi_sku_different(sku: str, discounted_sku: str, counts: dict[str | int], amount: int) -> int:
+            free_sku = sku // amount
 
-        # Free B discount is always better than 50% of a B if you buy two, so always apply
         free_b = counts["E"] // 2
         if counts.get("B"):
             counts["B"] = max(0, counts["B"] - free_b)
@@ -76,6 +77,7 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 
 
 
