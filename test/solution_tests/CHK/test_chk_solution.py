@@ -45,4 +45,13 @@ class TestCHK():
         assert CheckoutSolution().checkout("FFFFFFFFFFFF") == 80
         assert CheckoutSolution().checkout("FFFABC") == 20 + 50 + 30 + 20
 
+    def test_new_offers(self):
+        assert CheckoutSolution().checkout("HHHHHHHHHH") == 80
+        assert CheckoutSolution().checkout("KK") == 150
+        assert CheckoutSolution().checkout("NNNMM") == 135
+        assert CheckoutSolution().checkout("PPPPP") == 200
+        assert CheckoutSolution().checkout("QQQ") == 80
+        assert CheckoutSolution().checkout("RRRQQQ") == 80
+
+
 

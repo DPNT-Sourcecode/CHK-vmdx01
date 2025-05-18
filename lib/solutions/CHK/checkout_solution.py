@@ -18,25 +18,25 @@ class CheckoutSolution:
             "E": {"price": 40, "offers": []}, # 2E get one B free
             "F": {"price": 10, "offers": []}, # 2F get one F free 
             "G": {"price": 20, "offers": []},
-            "H": {"price": 20, "offers": [(5,45), (10,80)]},
-            "I": {"price": 20, "offers": []},
-            "J": {"price": 20, "offers": []},
-            "K": {"price": 20, "offers": [(2,150)]},
-            "L": {"price": 20, "offers": []},
-            "M": {"price": 20, "offers": []},
-            "N": {"price": 20, "offers": []}, # 3N get one M free
-            "O": {"price": 20, "offers": []},
-            "P": {"price": 20, "offers": [(5,200)]},
-            "Q": {"price": 20, "offers": [(3,80)]},
-            "R": {"price": 20, "offers": []}, # 3R get one Q free
-            "S": {"price": 20, "offers": []},
+            "H": {"price": 10, "offers": [(5,45), (10,80)]},
+            "I": {"price": 35, "offers": []},
+            "J": {"price": 60, "offers": []},
+            "K": {"price": 80, "offers": [(2,150)]},
+            "L": {"price": 90, "offers": []},
+            "M": {"price": 15, "offers": []},
+            "N": {"price": 40, "offers": []}, # 3N get one M free
+            "O": {"price": 10, "offers": []},
+            "P": {"price": 50, "offers": [(5,200)]},
+            "Q": {"price": 30, "offers": [(3,80)]},
+            "R": {"price": 50, "offers": []}, # 3R get one Q free
+            "S": {"price": 30, "offers": []},
             "T": {"price": 20, "offers": []},
-            "U": {"price": 20, "offers": []}, # 3U get one U
-            "V": {"price": 20, "offers": [(2,90), (3,130)]},
+            "U": {"price": 40, "offers": []}, # 3U get one U
+            "V": {"price": 50, "offers": [(2,90), (3,130)]},
             "W": {"price": 20, "offers": []},
-            "X": {"price": 20, "offers": []},
-            "Y": {"price": 20, "offers": []},
-            "Z": {"price": 20, "offers": []},
+            "X": {"price": 90, "offers": []},
+            "Y": {"price": 10, "offers": []},
+            "Z": {"price": 50, "offers": []},
         }
 
         total = 0
@@ -65,3 +65,4 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
