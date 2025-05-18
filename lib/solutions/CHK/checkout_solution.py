@@ -16,13 +16,20 @@ class CheckoutSolution:
             "C": {"price": 20, "offers": []},
             "D": {"price": 15, "offers": []},
             "E": {"price": 40, "offers": []} # apply 2E for 1B separately
+            "F": {"price": 10, "offers": []} # apply 
         }
 
         total = 0
         from collections import Counter
         counts = Counter(skus)
-        
-        # free_b is always better than 50% of a B if you buy two so always apply this discount
+
+        # 
+        if "F" in counts:
+            total_f = counts["F"]
+            free_f = total_f // 3
+            counts["F"] = total_f - free_f
+
+        # Free B discount is always better than 50% of a B if you buy two so always apply this discount
         free_b = counts["E"] // 2
         if counts.get("B"):
             counts["B"] = max(0, counts["B"] - free_b)
@@ -43,5 +50,6 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 
 
