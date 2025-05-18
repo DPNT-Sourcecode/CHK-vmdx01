@@ -14,4 +14,8 @@ class CheckoutSolution:
         from collections import Counter
         counts = Counter(skus)
 
-        
+        for item, count in counter.items():
+            data = price_table.get("A")
+            if data["offer"]:
+                offer_num, offer_price = data["offer"]
+                
