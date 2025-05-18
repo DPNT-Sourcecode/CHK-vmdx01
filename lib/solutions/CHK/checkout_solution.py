@@ -43,23 +43,21 @@ class CheckoutSolution:
         from collections import Counter
         counts = Counter(skus)
 
-        def update_counts_multi_sku_same(sku: str, counts: dict[str | int], amount_needed: int) -> int:
-            total_sku = counts[sku]
-            free_sku = total_sku // amount_needed
-            counts[sku] = total_sku - free_sku
-            return counts
+        def update_counts_multi_sku_same(sku: str, current_total: int, amount_needed: int) -> int:
+            free_sku = current_total // amount_needed
+            return current_total - free_sku
 
-        if "F" in counts:
-            counts = update_counts_multi_sku_same("F", counts, 3)
+        counts["F"] = update_counts_multi_sku_same("F", counts["F"], 3)
+        counts["U"] = 
         if "U" in counts:
             counts = update_counts_multi_sku_same("U", counts, 3)
 
-        def update_counts_multi_sku_different(sku: str, discounted_sku: str, counts: dict[str | int], amount: int) -> int:
-            free_sku = sku // amount
+        def update_counts_multi_sku_different(sku: str, discounted_sku: str, counts: dict[str | int], amount_needed: int) -> int:
+            free_sku = sku // amount_needed
+            if counts.get(discounted_sku):
+                counts[discounted_sku] = max(0, counts[discounted_sku] - free_sku)
 
-        free_b = counts["E"] // 2
-        if counts.get("B"):
-            counts["B"] = max(0, counts["B"] - free_b)
+        if "B"
 
         for item, count in counts.items():
             data = price_table.get(item)
@@ -77,6 +75,7 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 
 
 
