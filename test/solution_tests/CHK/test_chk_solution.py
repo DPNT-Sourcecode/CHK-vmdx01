@@ -32,4 +32,8 @@ class TestCHK():
         assert CheckoutSolution().checkout("BBEE") == 110 
 
     def test_pro_customer_offer(self):
-        pass
+        assert CheckoutSolution().checkout("AAAAA") == 200
+        assert CheckoutSolution().checkout("AAAAAA") == 250
+        assert CheckoutSolution().checkout("AAAAAAAA") == 330
+        assert CheckoutSolution().checkout("AA") == 100
+        assert CheckoutSolution().checkout("AAAAAAAAA") == 380
