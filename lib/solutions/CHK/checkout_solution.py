@@ -26,13 +26,13 @@ class CheckoutSolution:
             "M": {"price": 20, "offers": []},
             "N": {"price": 20, "offers": []}, # apply 3N get one M free separately
             "O": {"price": 20, "offers": []},
-            "P": {"price": 20, "offers": []},
-            "Q": {"price": 20, "offers": []},
-            "R": {"price": 20, "offers": []},
+            "P": {"price": 20, "offers": [(5,200)]},
+            "Q": {"price": 20, "offers": [(3,80)]},
+            "R": {"price": 20, "offers": []}, # apply 3R get one Q free separately
             "S": {"price": 20, "offers": []},
             "T": {"price": 20, "offers": []},
-            "U": {"price": 20, "offers": []},
-            "V": {"price": 20, "offers": []},
+            "U": {"price": 20, "offers": []}, # apply 3U get one U separately
+            "V": {"price": 20, "offers": [(2,90), (3,130)]},
             "W": {"price": 20, "offers": []},
             "X": {"price": 20, "offers": []},
             "Y": {"price": 20, "offers": []},
@@ -44,6 +44,9 @@ class CheckoutSolution:
         counts = Counter(skus)
 
         # Free F discount will not be affected by other discounts, so always apply
+        def multiple_sku_free_sku_offer(sku: str) -> :
+
+
         if "F" in counts:
             total_f = counts["F"]
             free_f = total_f // 3
@@ -70,3 +73,4 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
