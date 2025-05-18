@@ -39,7 +39,7 @@ class CheckoutSolution:
             "Z": {"price": 21, "offers": []}, # buy any 3 of (S,T,X,Y,Z) for 45
         }
 
-        group_items = set("S", "T", "X", "Y", "Z")
+        group_items = {"S", "T", "X", "Y", "Z"}
         group_price = 45
         group_size = 3
 
@@ -53,7 +53,6 @@ class CheckoutSolution:
         counts["M"] =  max(0, counts["M"] - (counts["N"] // 3))
         counts["Q"] =  max(0, counts["Q"] - (counts["R"] // 3))
 
-        # get all groups in count
         group_pool = []
         for item in group_items:
             group_pool.extend([item] * counts.get(item, 0))
@@ -61,8 +60,10 @@ class CheckoutSolution:
         number_of_groups = len(group_pool) // group_size
         total += number_of_groups * group_price
 
-        #remove groups from count so normal pricing can happen
-        
+        # Remove groups from count so normal pricing can happen
+        group_count = Counter(group_pool)
+        for item in group_items:
+            counts[item] -= group_count[item]
 
         for item, count in counts.items():
             data = price_table.get(item)
@@ -80,3 +81,4 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
