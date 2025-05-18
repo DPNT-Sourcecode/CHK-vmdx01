@@ -22,7 +22,7 @@ class CheckoutSolution:
         from collections import Counter
         counts = Counter(skus)
         
-        free_b = counts // 2
+        free_b = counts["E"] // 2
         if counts.get("B"):
             counts["B"] = max(0, counts["B"] - free_b)
 
@@ -40,8 +40,3 @@ class CheckoutSolution:
                 total += data["price"] * count
 
         return total
-
-
-
-
-

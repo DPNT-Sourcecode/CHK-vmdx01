@@ -18,7 +18,7 @@ class TestCHK():
         assert CheckoutSolution().checkout("AAAAABB") == 275
 
     def test_invalid_input(self):
-        assert CheckoutSolution().checkout("E") == -1
+        assert CheckoutSolution().checkout("Z") == -1
         assert CheckoutSolution().checkout(435) == -1
         assert CheckoutSolution().checkout("A435B") == -1
         assert CheckoutSolution().checkout(True) == -1
@@ -27,11 +27,9 @@ class TestCHK():
         assert CheckoutSolution().checkout("") == 0
 
     def test_2E_get_1B(self):
-        pass
+        assert CheckoutSolution().checkout("BEE") == 80
+        assert CheckoutSolution().checkout("BBEEEEEE") == 240
+        assert CheckoutSolution().checkout("BBEE") 
 
     def test_pro_customer_offer(self):
         pass
-
-
-
-
