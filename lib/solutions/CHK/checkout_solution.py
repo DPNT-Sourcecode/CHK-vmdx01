@@ -39,6 +39,13 @@ class CheckoutSolution:
             "Z": {"price": 21, "offers": []}, # buy any 3 of (S,T,X,Y,Z) for 45
         }
 
+        group_items = set("S", "T", "X", "Y", "Z")
+        group_price = 45
+        group_size = 3
+
+        
+
+
         total = 0
         from collections import Counter
         counts = Counter(skus)
@@ -65,6 +72,7 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 
 
 
