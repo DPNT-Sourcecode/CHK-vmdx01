@@ -26,6 +26,11 @@ class TestCHK():
     def test_empty_input(self):
         assert CheckoutSolution().checkout("") == 0
 
+    def test_2E_get_1B(self):
+        pass
+
+    def test_pro_customer_offer(self):
+        pass
 
 
 
