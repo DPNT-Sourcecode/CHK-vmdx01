@@ -48,16 +48,15 @@ class CheckoutSolution:
             return current_total - free_sku
 
         counts["F"] = update_counts_multi_sku_same("F", counts["F"], 3)
-        counts["U"] = 
-        if "U" in counts:
-            counts = update_counts_multi_sku_same("U", counts, 3)
+        counts["U"] = update_counts_multi_sku_same("U", counts["U"], 3)
 
-        def update_counts_multi_sku_different(sku: str, discounted_sku: str, counts: dict[str | int], amount_needed: int) -> int:
-            free_sku = sku // amount_needed
-            if counts.get(discounted_sku):
-                counts[discounted_sku] = max(0, counts[discounted_sku] - free_sku)
+        def update_counts_multi_sku_different(offer_sku: str, discounted_sku: str, current_total: int, amount_needed: int) -> int:
+            free_sku = offer_sku // amount_needed
+            return max(0, current_total - free_sku)
 
-        if "B"
+        counts["B"] = update_counts_multi_sku_same("E", "B", counts["B"], 2)
+        counts["M"] = update_counts_multi_sku_same("N", "M", counts["M"], 3)
+        counts["Q"] = update_counts_multi_sku_same("R", "Q", counts["Q"], 3)
 
         for item, count in counts.items():
             data = price_table.get(item)
@@ -75,6 +74,7 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 
 
 
