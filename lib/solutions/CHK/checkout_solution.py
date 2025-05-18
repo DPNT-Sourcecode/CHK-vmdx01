@@ -42,27 +42,12 @@ class CheckoutSolution:
         total = 0
         from collections import Counter
         counts = Counter(skus)
-        print(counts)
 
-        def get_counts_multi_sku_one_same_free_offer(sku: str, current_total: int, amount_needed: int) -> int:
-            free_sku = current_total // amount_needed
-            return current_total - free_sku
-
-        counts["F"] = get_counts_multi_sku_one_same_free_offer("F", counts["F"], 3)
-        counts["U"] = get_counts_multi_sku_one_same_free_offer("U", counts["U"], 3)
-
-        def get_counts_multi_sku_one_different_free_offer(offer_sku: str, discounted_sku: str, current_total: int, amount_needed: int) -> int:
-            free_sku = offer_sku // amount_needed
-            return max(0, current_total - free_sku)
-
-        free_b = counts["E"] // 2
-        if counts.get("B"):
-            counts["B"] = max(0, counts["B"] - free_b)
-
-
-        counts["B"] = get_counts_multi_sku_one_different_free_offer("E", "B", counts["B"], 2)
-        counts["M"] = get_counts_multi_sku_one_different_free_offer("N", "M", counts["M"], 3)
-        counts["Q"] = get_counts_multi_sku_one_different_free_offer("R", "Q", counts["Q"], 3)
+        counts["F"] = counts["F"] - (counts["F"] // 3)
+        counts["U"] = counts["U"] - (counts["U"] // 3)
+        counts["B"] =  max(0, counts["B"] - (counts["E"] // 2))
+        counts["M"] =  max(0, counts["M"] - (counts["N"] // 3))
+        counts["Q"] =  max(0, counts["Q"] - (counts["R"] // 3))
 
         for item, count in counts.items():
             data = price_table.get(item)

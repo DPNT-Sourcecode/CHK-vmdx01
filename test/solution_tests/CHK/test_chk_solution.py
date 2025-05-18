@@ -19,7 +19,7 @@ class TestCHK():
         assert CheckoutSolution().checkout("AAAAABBEEFFF") == 200 + 30 + 80 + 20
 
     def test_invalid_input(self):
-        assert CheckoutSolution().checkout("Z") == -1
+        assert CheckoutSolution().checkout(".") == -1
         assert CheckoutSolution().checkout(435) == -1
         assert CheckoutSolution().checkout("A435B") == -1
         assert CheckoutSolution().checkout(True) == -1
@@ -44,3 +44,5 @@ class TestCHK():
         assert CheckoutSolution().checkout("FFFFF") == 40
         assert CheckoutSolution().checkout("FFFFFFFFFFFF") == 80
         assert CheckoutSolution().checkout("FFFABC") == 20 + 50 + 30 + 20
+
+
