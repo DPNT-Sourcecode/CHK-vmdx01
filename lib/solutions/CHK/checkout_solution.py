@@ -2,7 +2,8 @@
 class CheckoutSolution:
 
     def is_valid_skus(self, skus: str) -> bool:
-        return skus == "" or (skus.isalpha() and skus.isupper())
+        import re
+        return bool(re.fullmatch(r"[A-Z]*", str(skus)))
 
     # skus = unicode string
     def checkout(self, skus: str) -> int:
@@ -34,6 +35,7 @@ class CheckoutSolution:
                 total += data["price"] * count
 
         return total
+
 
 
 

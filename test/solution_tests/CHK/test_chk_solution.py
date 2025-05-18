@@ -20,9 +20,12 @@ class TestCHK():
     def test_invalid_input(self):
         assert CheckoutSolution().checkout("E") == -1
         assert CheckoutSolution().checkout(435) == -1
+        assert CheckoutSolution().checkout("A435B") == -1
+        assert CheckoutSolution().checkout(True) == -1
 
     def test_empty_input(self):
         assert CheckoutSolution().checkout("") == 0
+
 
 
 
