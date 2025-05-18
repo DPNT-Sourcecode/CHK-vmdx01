@@ -29,7 +29,7 @@ class TestCHK():
     def test_2E_get_1B(self):
         assert CheckoutSolution().checkout("BEE") == 80
         assert CheckoutSolution().checkout("BBEEEEEE") == 240
-        assert CheckoutSolution().checkout("BBEE") 
+        assert CheckoutSolution().checkout("BBEE") == 110 
 
     def test_pro_customer_offer(self):
         pass
