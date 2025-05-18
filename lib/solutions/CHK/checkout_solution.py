@@ -44,7 +44,9 @@ class CheckoutSolution:
         counts = Counter(skus)
 
         # Free F discount will not be affected by other discounts, so always apply
-        def multiple_sku_free_sku_offer(sku: str) -> :
+        def update_sku_multiple_sku_free_sku_offer(sku: str, counts: dict[str | int], ) -> int:
+            total_sku = counts[sku]
+            free_sku = total_sku // 
 
 
         if "F" in counts:
@@ -73,4 +75,5 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 
