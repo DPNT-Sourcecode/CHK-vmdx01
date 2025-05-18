@@ -35,8 +35,7 @@ class CheckoutSolution:
             # this assumes that offers are highest offer_num will be the best offer
             offers = sorted(data["offers"], reverse=True)
 
-            for offer_num, offer_price in data["offers"]:
-                print(offer_num)
+            for offer_num, offer_price in offers:
                 offers_applied = count // offer_num
                 count = count % offer_num
                 total += offers_applied * offer_price 
@@ -44,4 +43,5 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 
