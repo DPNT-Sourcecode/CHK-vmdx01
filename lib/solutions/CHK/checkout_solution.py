@@ -18,4 +18,10 @@ class CheckoutSolution:
             data = price_table.get("A")
             if data["offer"]:
                 offer_num, offer_price = data["offer"]
-                
+                total_offers_applied = count // offer_num
+                remaining_items = count % offer_num
+                total += total_offers_applied * offer_price + remaining_items * data["price"]
+            else:
+                total += data["price"] * count
+
+        return total
