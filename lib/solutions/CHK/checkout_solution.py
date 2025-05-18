@@ -16,7 +16,27 @@ class CheckoutSolution:
             "C": {"price": 20, "offers": []},
             "D": {"price": 15, "offers": []},
             "E": {"price": 40, "offers": []}, # apply 2E for 1B separately
-            "F": {"price": 10, "offers": []} # apply 2F get one F free separately
+            "F": {"price": 10, "offers": []}, # apply 2F get one F free separately
+            "G": {"price": 20, "offers": []},
+            "H": {"price": 20, "offers": [(5,45), (10,80)]},
+            "I": {"price": 20, "offers": []},
+            "J": {"price": 20, "offers": []},
+            "K": {"price": 20, "offers": [(2,150)]},
+            "L": {"price": 20, "offers": []},
+            "M": {"price": 20, "offers": []},
+            "N": {"price": 20, "offers": []}, # apply 3N get one M free separately
+            "O": {"price": 20, "offers": []},
+            "P": {"price": 20, "offers": []},
+            "Q": {"price": 20, "offers": []},
+            "R": {"price": 20, "offers": []},
+            "S": {"price": 20, "offers": []},
+            "T": {"price": 20, "offers": []},
+            "U": {"price": 20, "offers": []},
+            "V": {"price": 20, "offers": []},
+            "W": {"price": 20, "offers": []},
+            "X": {"price": 20, "offers": []},
+            "Y": {"price": 20, "offers": []},
+            "Z": {"price": 20, "offers": []},
         }
 
         total = 0
