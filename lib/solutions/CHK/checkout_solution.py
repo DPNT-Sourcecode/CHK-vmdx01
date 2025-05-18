@@ -44,7 +44,7 @@ class CheckoutSolution:
         counts = Counter(skus)
 
         counts["F"] = counts["F"] - (counts["F"] // 3)
-        counts["U"] = counts["U"] - (counts["U"] // 3)
+        counts["U"] = counts["U"] - (counts["U"] // 4) 
         counts["B"] =  max(0, counts["B"] - (counts["E"] // 2))
         counts["M"] =  max(0, counts["M"] - (counts["N"] // 3))
         counts["Q"] =  max(0, counts["Q"] - (counts["R"] // 3))
@@ -65,4 +65,5 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
+
 
