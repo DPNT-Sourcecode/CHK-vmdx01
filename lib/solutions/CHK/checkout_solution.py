@@ -43,9 +43,6 @@ class CheckoutSolution:
         group_price = 45
         group_size = 3
 
-        
-
-
         total = 0
         from collections import Counter
         counts = Counter(skus)
@@ -55,6 +52,11 @@ class CheckoutSolution:
         counts["B"] =  max(0, counts["B"] - (counts["E"] // 2))
         counts["M"] =  max(0, counts["M"] - (counts["N"] // 3))
         counts["Q"] =  max(0, counts["Q"] - (counts["R"] // 3))
+
+        # get all groups in count
+        group_pool = []
+        for item in group_items:
+            
 
         for item, count in counts.items():
             data = price_table.get(item)
@@ -72,7 +74,3 @@ class CheckoutSolution:
             total += data["price"] * count
 
         return total
-
-
-
-

@@ -58,8 +58,3 @@ class TestCHK():
         assert CheckoutSolution().checkout("VVV") == 130
         assert CheckoutSolution().checkout("VV") == 90
 
-
-
-
-
-
