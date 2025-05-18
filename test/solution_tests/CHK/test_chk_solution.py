@@ -51,7 +51,12 @@ class TestCHK():
         assert CheckoutSolution().checkout("NNNMM") == 135
         assert CheckoutSolution().checkout("PPPPP") == 200
         assert CheckoutSolution().checkout("QQQ") == 80
-        assert CheckoutSolution().checkout("RRRQQQ") == 80
+        assert CheckoutSolution().checkout("RRRQQQ") == 210
+        assert CheckoutSolution().checkout("RRRQQQQ") == 230
+        assert CheckoutSolution().checkout("UUUU") == 120
+        assert CheckoutSolution().checkout("VVV") == 130
+        assert CheckoutSolution().checkout("VV") == 90
+
 
 
 
