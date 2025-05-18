@@ -1,11 +1,10 @@
 
 class CheckoutSolution:
 
+    def is_valid_skus(skus):
+
     # skus = unicode string
     def checkout(self, skus: str) -> int:
-        if len(skus) == 0:
-            return 0
-
         price_table = {
             "A": {"price": 50, "offer": (3,130)},
             "B": {"price": 30, "offer": (2,45)},
@@ -17,8 +16,11 @@ class CheckoutSolution:
         from collections import Counter
         counts = Counter(skus)
 
-        for item, count in counter.items():
-            data = price_table.get("A")
+        for item, count in counts.items():
+            data = price_table.get(item)
+            if not data:
+                return -1
+
             if data["offer"]:
                 offer_num, offer_price = data["offer"]
                 total_offers_applied = count // offer_num
@@ -28,4 +30,5 @@ class CheckoutSolution:
                 total += data["price"] * count
 
         return total
+
 
