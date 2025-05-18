@@ -17,6 +17,8 @@ class TestCHK():
     def test_multi_sku_with_offer(self):
         assert CheckoutSolution().checkout("AAAAABB") == 245
         assert CheckoutSolution().checkout("AAAAABBEEFFF") == 200 + 30 + 80 + 20
+        assert CheckoutSolution().checkout("AAAAABBEEFFFSSS") == 200 + 30 + 80 + 20 + 45
+        assert CheckoutSolution().checkout("AAAAABBEEFFFSSSSTXYZ") == 200 + 30 + 80 + 20 + 127
 
     def test_invalid_input(self):
         assert CheckoutSolution().checkout(".") == -1
@@ -59,8 +61,9 @@ class TestCHK():
         assert CheckoutSolution().checkout("VV") == 90
 
     def test_STXYZ_offer(self):
-        assert CheckoutSolution().checkout("STXYZ") == 82 # Z,T,Y,S,X ZTY should be removed for 45 + S and X = 45 + 17 + 20
-        assert CheckoutSolution().checkout("SSSSTXYZ") == 90 + 17 + 20
+        assert CheckoutSolution().checkout("STXYZ") == 82 # ZTY should be removed for 45 + S and X = 45 + 17 + 20
+        assert CheckoutSolution().checkout("SSSSTXYZ") == 127
+
 
 
 
